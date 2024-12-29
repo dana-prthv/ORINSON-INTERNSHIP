@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluation Results</title>
+</head>
+<body>
+    <h1>Evaluation Results for {{ model }}</h1>
+    <p>Accuracy: {{ accuracy }}</p>
+    <p>Log Loss: {{ logloss }}</p>
+    <p>Precision: {{ precision }}</p>
+    <p>ROC AUC: {{ roc_auc }}</p>
+    <h2>Confusion Matrix</h2>
+    <img src="data:image/png;base64,{{ cm_image }}" alt="Confusion Matrix">
+    {% if importance_image %}
+    <h2>Feature Importance</h2>
+    <img src="data:image/png;base64,{{ importance_image }}" alt="Feature Importance">
+    {% endif %}
+    <a href="/roc_curve">View ROC Curve</a>
+</body>
+</html>
